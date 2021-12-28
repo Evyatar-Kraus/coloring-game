@@ -1,0 +1,138 @@
+/* general elements css */
+html,body{
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    border:0;
+    overflow: auto;
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+    border:0;
+    text-transform: none;
+    -webkit-appearance: button;
+    text-decoration: none;
+    background: none;
+}
+
+/* container */
+#container{
+    height: 100%;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+}
+
+/* color panel */
+.section-colors-panel{
+    padding:1em;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+}
+
+.section-colors-panel {
+    background:lightgray;
+    height:auto;
+    box-sizing: border-box;
+    width: 42.6em;
+    overflow:hidden;
+    max-height:100%;
+}
+
+.rows-colors{
+    width: 100%;
+    height: 100%;
+    grid-gap: 2% 3%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding-bottom:1em;
+    align-items: start;
+}
+.clear-btn{
+    text-align:center;
+    width:100%;
+    font-size: 3em;
+    border:1px solid #aa2222;
+    border-radius:2px;
+    font-weight:bold;
+    padding:0.4em 0;
+    margin-bottom:0.5em;
+    background: white;
+    grid-column:1/4;
+}
+
+.color-btn{
+    border:1px solid black;
+    height: 99%;
+    line-height: 1em;
+}
+
+/* coloring game board */
+.section-coloring-board      { border-width: 2px  0   0  2px }
+.section-coloring-board > div { border-width:  0  2px 2px  0  }
+
+/* board */
+.section-coloring-board{
+    overflow:hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+.section-coloring-board > .board-cell{
+    width:calc(100% / 60);
+    height:calc(100%/24);
+    border: 1px lightgray solid;
+    background-color: white;
+}
+
+@media screen and (max-width:960px){
+        html,body{
+            overflow-y:auto;
+            min-height:100%;
+        }
+        #container{
+            flex-direction: column;
+            min-height:100%;
+        }
+        .section-colors-panel{
+            width:100%;
+            height:45em;
+            font-size:4px;
+        }
+        .row-clear{
+            width:20em;
+            align-self: center;
+            justify-self:center;
+        }
+        .rows-colors{
+            /* row-gap:0.1em; */
+            width:100%;
+            height:100%;
+            grid-template-rows:unset;
+            grid-template-columns: unset;
+            /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+            grid-template-rows:repeat(4, 1fr);
+            grid-template-columns:repeat(6, 1fr);
+        }
+        .color-btn{
+            height:6em;
+            width:100%;
+            align-self: center;
+        }
+        .section-coloring-board{
+            height:80%;
+        }
+}
